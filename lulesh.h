@@ -19,6 +19,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <cfloat>
 #include <vector>
 
 //**************************************************
@@ -37,6 +38,7 @@ typedef int32_t Int4_t ;
 typedef int64_t Int8_t ;
 typedef Int4_t  Index_t ; // array subscript and loop index
 typedef real8   Real_t ;  // floating point representation
+#define REAL_MAX DBL_MAX;
 typedef Int4_t  Int_t ;   // integer representation
 
 enum { VolumeError = -1, QStopError = -2 } ;

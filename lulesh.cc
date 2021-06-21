@@ -2453,6 +2453,10 @@ void CalcCourantConstraintForElems(Domain &domain, Index_t length,
    const Index_t threads = omp_get_max_threads();
    Index_t courant_elem_per_thread[threads];
    Real_t dtcourant_per_thread[threads];
+   for(int i=0; i<threads; i++) {
+       courant_elem_per_thread[i] = -1;
+       dtcourant_per_thread[i] = REAL_MAX;
+   }
 #else
    Index_t threads = 1;
    Index_t courant_elem_per_thread[1];
@@ -2522,6 +2526,10 @@ void CalcHydroConstraintForElems(Domain &domain, Index_t length,
    const Index_t threads = omp_get_max_threads();
    Index_t hydro_elem_per_thread[threads];
    Real_t dthydro_per_thread[threads];
+   for(int i=0; i<threads; i++) {
+       hydro_elem_per_thread[i] = -1;
+       dthydro_per_thread[i] = REAL_MAX;
+   }
 #else
    Index_t threads = 1;
    Index_t hydro_elem_per_thread[1];
